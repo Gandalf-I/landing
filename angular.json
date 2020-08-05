@@ -1,9 +1,9 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "$schema": "node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Landing": {
+    "landing": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/reset-css/reset.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -66,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Landing:build"
+            "browserTarget": "landing:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Landing:build:production"
+              "browserTarget": "landing:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Landing:build"
+            "browserTarget": "landing:build"
           }
         },
         "test": {
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+
               "src/styles.scss"
             ],
             "scripts": []
@@ -114,15 +116,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Landing:serve"
+            "devServerTarget": "landing:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Landing:serve:production"
+              "devServerTarget": "landing:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "Landing"
+    }
+  },
+  "defaultProject": "landing",
+  "cli": {
+    "analytics": false
+  }
 }
